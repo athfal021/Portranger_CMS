@@ -37,8 +37,7 @@ You can download Portranger CMS in one of two ways:
     
     bash
     
-        git clone https://github.com
-        cd portranger-cms
+        https://github.com/athfal021/Portranger_CMS.git
         
     
     Use code with caution.
