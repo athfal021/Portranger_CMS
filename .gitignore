@@ -1,0 +1,23 @@
+# === Core Secrets & Local Configurations ===
+# Prevents exposing your database passwords and personal configurations
+config.php
+.env
+.env.local
+.env.*.local
+
+# === Package Manager Folders ===
+# Excludes downloaded external libraries (users will fetch these fresh)
+vendor/
+node_modules/
+
+# === OS & IDE Trash Files ===
+# Cleans out system-specific clutter from appearing on GitHub
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === Local Log & Cache Files ===
+# Keeps temporary system generation files off your repository
+*.log
+.phpunit.result.cache

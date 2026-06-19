@@ -1,0 +1,9 @@
+html {
+    scroll-behavior: smooth;
+}
+.hover\:bg-opacity-90:hover {
+    opacity: 0.9;
+}
+.transition {
+    transition: all 0.3s ease;
+}

@@ -1,0 +1,25 @@
+RewriteEngine On
+
+# 1. Base path setup (Ensures relative links work on any host)
+RewriteBase /
+
+# 2. Project URL Rewrite (Standard fallback structure used by live hosts)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^project/([0-9]+)$ project.php?id=$1 [L,QSA]
+
+# 3. Security: Block direct web access to sensitive items
+# Uses generic patterns compatible with both Apache 2.4+ and mobile servers
+RedirectMatch 403 (?i)\.(sql|htaccess)$
+RedirectMatch 403 ^/(admin/includes|sql|backup)(/.*)?$
+
+# 4. Custom error pages
+ErrorDocument 400 /error.php?code=400
+ErrorDocument 401 /error.php?code=401
+ErrorDocument 403 /error.php?code=403
+ErrorDocument 404 /error.php?code=404
+ErrorDocument 405 /error.php?code=405
+ErrorDocument 500 /error.php?code=500
+ErrorDocument 502 /error.php?code=502
+ErrorDocument 503 /error.php?code=503
+ErrorDocument 504 /error.php?code=504
