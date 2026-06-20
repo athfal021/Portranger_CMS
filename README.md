@@ -78,7 +78,7 @@ Portranger CMS is an open-source project, and contributions are welcome!
 
 ### 🛡️ Licence
 
-This project is open-source software licensed under the **MIT Licence**. See the `LICENSE` file for details.
+This project is open-source software licensed under the **GPL Licence**. See the `LICENSE` file for details.
 
 * * *
 
