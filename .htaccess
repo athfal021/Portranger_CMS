@@ -1,19 +1,21 @@
 RewriteEngine On
-
-# 1. Base path setup (Ensures relative links work on any host)
 RewriteBase /
 
-# 2. Project URL Rewrite (Standard fallback structure used by live hosts)
+# Redirect to installer if config.php doesn't exist
+RewriteCond %{REQUEST_URI} !^/install\.php$
+RewriteCond %{DOCUMENT_ROOT}/admin/includes/config.php !-f
+RewriteRule ^.*$ /install.php [L]
+
+# Project URL Rewrite
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^project/([0-9]+)$ project.php?id=$1 [L,QSA]
 
-# 3. Security: Block direct web access to sensitive items
-# Uses generic patterns compatible with both Apache 2.4+ and mobile servers
+# Security: Block direct access to sensitive items
 RedirectMatch 403 (?i)\.(sql|htaccess)$
 RedirectMatch 403 ^/(admin/includes|sql|backup)(/.*)?$
 
-# 4. Custom error pages
+# Custom error pages
 ErrorDocument 400 /error.php?code=400
 ErrorDocument 401 /error.php?code=401
 ErrorDocument 403 /error.php?code=403

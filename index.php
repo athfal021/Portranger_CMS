@@ -1,15 +1,22 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 
-require_once 'admin/includes/config.php';
-require_once 'admin/includes/db.php';
-require_once 'admin/includes/functions.php';
+if (!file_exists(__DIR__ . '/admin/includes/config.php')) {
+    header('Location: install.php');
+    exit;
+}
+
+require_once __DIR__ . '/admin/includes/config.php';
+require_once __DIR__ . '/admin/includes/db.php';
+require_once __DIR__ . '/admin/includes/functions.php';
 
 $db = getDB();
 $profile = getProfile();
 $appearance = getAppearance();
 $seo = getSEO();
+
+
 $sections = $db->query("SELECT * FROM sections WHERE is_visible = 1 ORDER BY display_order")->fetchAll();
 $skills = $db->query("SELECT * FROM skills ORDER BY display_order")->fetchAll();
 $experiences = $db->query("SELECT * FROM experiences ORDER BY display_order")->fetchAll();
