@@ -216,8 +216,8 @@ CREATE TABLE `appearance` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `logo_media_id` INT NULL,
     `favicon_media_id` INT NULL,
-    `primary_color` VARCHAR(7) DEFAULT '#3b82f6',
-    `secondary_color` VARCHAR(7) DEFAULT '#1e293b',
+    `primary_color` VARCHAR(7) DEFAULT '#142386',
+    `secondary_color` VARCHAR(7) DEFAULT '#16202f',
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (`logo_media_id`) REFERENCES `media`(`id`) ON DELETE SET NULL,
     FOREIGN KEY (`favicon_media_id`) REFERENCES `media`(`id`) ON DELETE SET NULL
@@ -270,7 +270,7 @@ CREATE TABLE `activity_logs` (
 
 -- Profile
 INSERT INTO `profile` (`full_name`, `professional_title`, `short_intro`, `about_description`, `email`, `phone`, `location`) 
-VALUES ('Your Name', 'Web Developer & Designer', 'I build amazing web experiences', 'More about me...', 'hello@example.com', '+1234567890', 'New York, USA');
+VALUES ('Portranger CMS', 'Web Developer', 'I build amazing web experiences', 'More about me...', 'hello@example.com', '+1234567890', 'New York, USA');
 
 -- Navigation items
 INSERT INTO `navigation_items` (`title`, `url`, `display_order`) VALUES
@@ -283,11 +283,11 @@ INSERT INTO `navigation_items` (`title`, `url`, `display_order`) VALUES
 
 -- Appearance
 INSERT INTO `appearance` (`primary_color`, `secondary_color`) 
-VALUES ('#3b82f6', '#1e293b');
+VALUES ('#001652', '#416dcc');
 
 -- SEO
 INSERT INTO `seo` (`site_title`, `meta_description`) 
-VALUES ('Portfolio', 'Professional portfolio management system');
+VALUES ('Portranger', 'Professional portfolio management system');
 
 -- Sample footer links
 INSERT INTO `footer_links` (`title`, `url`, `display_order`) VALUES
