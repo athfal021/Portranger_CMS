@@ -486,7 +486,7 @@ function renderInstalledPage(): void
     <div class="card">
         <div style="font-size:56px;line-height:1;">✅</div>
         <h1 class="title">Setup already completed</h1>
-        <p class="text">The application is already configured. Redirecting to the admin login.</p>
+        <p class="text">The application is already configured. Redirecting to the admin panel.</p>
         <a class="btn" href="<?= h(REDIRECT_TARGET) ?>">Go now</a>
     </div>
 </body>
@@ -541,8 +541,8 @@ function renderSuccessPage(): void
     <div class="card">
         <div style="font-size:56px;line-height:1;">🎉</div>
         <h1 class="title">Setup complete</h1>
-        <p class="text">The database was installed, default media was registered, and the admin account was created.</p>
-        <p class="text">Redirecting to the admin login in <span class="count" id="countdown"><?= (int) REDIRECT_SECONDS ?></span> seconds.</p>
+        <p class="text">Congratulation! Setup completed successfully.</p>
+        <p class="text">Redirecting to the admin panel in <span class="count" id="countdown"><?= (int) REDIRECT_SECONDS ?></span> seconds.</p>
         <a class="btn" href="<?= h(REDIRECT_TARGET) ?>">Go now</a>
         <p class="warn">For security, delete <strong>install.php</strong> after confirming login works.</p>
     </div>
@@ -974,7 +974,7 @@ if ($success) {
                 <div class="row">
                     <label for="db_pass">Database Password</label>
                     <input type="password" id="db_pass" name="db_pass" value="<?= h($dbPass) ?>" placeholder="database_password" required>
-                    <div class="help">All database fields are required. Blank values will be blocked before submission.</div>
+                    <div class="help">All fields are required.</div>
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width:100%;">Continue</button>
@@ -1019,11 +1019,11 @@ if ($success) {
             </form>
 
             <p class="footer-note">
-                After installation, the site will redirect to the admin login in <?= (int) REDIRECT_SECONDS ?> seconds.
+                After installation, the site will redirect to the admin panel in <?= (int) REDIRECT_SECONDS ?> seconds.
             </p>
         </div>
 
-        <a class="small-link" href="?reset=1">Reset installer session</a>
+        <a class="small-link" href="?reset=1">Reset</a>
     </div>
 </div>
 
